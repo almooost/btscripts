@@ -1,0 +1,112 @@
+Apache Flink Installation on AWS Lightsail (18.09.2018)
+
+AWS Lightsail Properties:
+OS: Ubuntu 16.04
+
+CPU: 2vCPU
+RAM: 8GB
+SSD: 160GB
+Transfer: 5TB
+
+Open Ports:
+
+TCP 8081: For Flink Web_interface
+
+
+Name: aws-ffhs-flink-001
+
+Key: in /home/samuel/Documents/ffhs/Lighsail...pem
+
+Access: ssh ubuntu@<public ip> -i /home/samuel/Documents/ffhs/Lightsail...pem
+
+- Prequesits -
+
+0.) Update virtual machine
+$ sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo reboot now
+
+
+1.) Install Java and set Java HOME
+$ sudo apt-get -y install openjdk-8-jdk-headless
+$ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+
+# For centos:
+$ sudo yum install java-1.8.0-openjdk-headless.x86_64
+$ sudo export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181-3.b13.amzn2.x86_64/
+
+
+
+- Flink Installation -
+Link: https://ci.apache.org/projects/flink/flink-docs-stable/quickstart/setup_quickstart.html
+
+For the installation of Flink, a Download package (with hadoop if necessary) will be needed.
+Link: https://flink.apache.org/downloads.html
+
+1.) Create folder for flink and download newest binaries
+$ sudo mkdir /opt/flink
+$ cd /opt/flink
+$ sudo wget http://mirror.switch.ch/mirror/apache/dist/flink/flink-1.6.0/flink-1.6.0-bin-hadoop28-scala_2.11.tgz
+$ sudo tar xzf flink-*.tgz
+
+
+2.) After downloading the flink files, start a cluster
+$ cd /opt/flink/flink-*/
+$ ./bin/start-cluster.sh
+# After the cluster is startet, you can access the web-interface via the public ip (port 8081 has to be open)
+Browser> http://<public-ip>:8081
+# Now you should see the web fronted and can check if everything is running
+# To check if everything is ok, check the log:
+$ less /opt/flink/flink-*/log/flink-*-standalonesession-*.log
+
+# Now the cluster is running with one server, you can deploy some code now!
+
+3.) Deploy some test code
+# Create a test Java
+-> Tip to build it with intellij
+- add the dependencies in the pom.xml file
+- go to File -> Project Structure -> Artifacts -> New -> JAR -> From module with dependencies
+- choose the Main class and click OK
+- in your project, in src/main, create the "resources" folder
+- move the "META-INF" (with MANIFEST.MF in it) folder in this "resources" folder
+- go to Build -> build artifacts to build the JAR
+
+
+# Programs were put into
+$ sudo mkdir /opt/programs
+
+# To run the code:
+$ /opt/flink/flink-*/bin/flink run /path/to/file.jar --port 9000
+
+# Example:
+$ /opt/flink/flink-1.6.1/bin/flink run -c ch.ffhs.alfano.flink.ReadFromKafka /tmp/fc001-1.0-SNAPSHOT.jar
+
+# in a second terminal, open port and check log file
+$ nc -l 9000
+
+# Check logs
+$ less /opt/flink/flink-*/log/flink-*-taskmanager-*.out
+
+
+
+### Setup Monitoring to ganglia
+
+1.) Copy and install RPMs from Gagnlia server (see Gagnlia setup file)
+
+2.) Configure ganglia gmond.conf file (see Ganglia setup file)
+
+3.) Configure flink
+```commandline
+$ 
+```
+
+
+```commandline
+$
+```
+
+```commandline
+$
+```
+
+```commandline
+$
+```
