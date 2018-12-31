@@ -1,5 +1,7 @@
 #!/bin/bash
 # Run docker machine
+sudo systemctl start docker
+# Run docker machine if not already running
 sudo docker run -d \
  --name graphite \
  --restart=always \

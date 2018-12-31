@@ -8,6 +8,7 @@ wget -P /opt/flink/ https://archive.apache.org/dist/flink/flink-1.7.0/flink-1.7.
 tar xvzf /opt/flink/flink*.tgz -C /opt/flink/
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
-sudo wget -P /opt/flink/ https://s3.amazonaws.com/ffhs-bt-bd/flink/fc001-2.0-SNAPSHOT-jar-with-dependencies.jar
+sudo cp /opt/flink/flink-1.7.0/opt/flink-metrics-graphite-1.7.0.jar /opt/flink/flink-1.7.0/lib/
 sudo cat /opt/btscripts/flink/flink_conf_metrics.yml >> /opt/flink/flink-1.7.0/conf/flink-conf.yaml
+sudo wget -P /opt/flink/ https://s3.amazonaws.com/ffhs-bt-bd/flink/fc001-2.0-SNAPSHOT-jar-with-dependencies.jar
 reboot now
