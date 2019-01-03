@@ -8,7 +8,7 @@ sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 # Download Docker maschine
 sudo systemctl start docker
-docker run -d \
+sudo docker run -d \
  --name graphite \
  --restart=always \
  -p 80:80 \

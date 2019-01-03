@@ -2,6 +2,6 @@
 # Flink Metrics to Graphite
 #==============================================================================
 metrics.reporter.grph.class: org.apache.flink.metrics.graphite.GraphiteReporter
-metrics.reporter.grph.host: 54.83.166.192
+metrics.reporter.grph.host: localhost
 metrics.reporter.grph.port: 2003
 metrics.reporter.grph.protocol: TCP

@@ -6,7 +6,7 @@ sudo /opt/spark/spark-2.4.0-bin-hadoop2.7/sbin/start-master.sh &
 # --executor-memory = Max. Memory used by executor
 # --total-executor-cores = Max executor cores
 sudo /opt/spark/spark-2.4.0-bin-hadoop2.7/bin/spark-submit \
-  --class ch.ffhs.alfano.KafkaWordCount \
+  --class ch.ffhs.alfano.spark.KafkaWordCount \
   --master spark://localhost_private_ip:7077 \
   --executor-memory 4G \
   --total-executor-cores 4 \
