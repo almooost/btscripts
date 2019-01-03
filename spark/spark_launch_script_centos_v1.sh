@@ -2,7 +2,6 @@
 # Update machine and install java, git and docker
 sudo yum -y update
 sudo yum install -y java-1.8.0-openjdk-headless.x86_64 git
-sudo amazon-linux-extras install docker
 # Create JAVA Home direcotry
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.amzn2.x86_64/
 # Create spark directory and download spark
@@ -14,22 +13,9 @@ sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 sudo cp /opt/btscripts/spark/metrics.properties /opt/spark/spark-2.4.0-bin-hadoop2.7/conf/
 sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/sc001-1.0-SNAPSHOT-jar-with-dependencies.jar
-# Start Docker and download graphite app
-sudo systemctl start docker
-sudo docker run -d \
- --name graphite \
- --restart=always \
- -p 80:80 \
- -p 2003-2004:2003-2004 \
- -p 2023-2024:2023-2024 \
- -p 8125:8125/udp \
- -p 8126:8126 \
- graphiteapp/graphite-statsd
-# Copy Configuration to local for easy editing
-sudo mkdir /home/ec2-user/graphite
-sudo docker cp graphite:/opt/graphite/conf /home/ec2-user/graphite
-sudo docker cp graphite:/opt/graphite/webapp/graphite /home/ec2-user/graphite/webapp
-# Stop graphite image again
-sudo docker stop graphite
+# Install collectl for collecting data
+sudo mkdir /opt/collectl
+sudo wget -P /opt/collectl https://sourceforge.net/projects/collectl/files/collectl/collectl-4.3.1/collectl-4.3.1.src.tar.gz
+sudo tar xvzf /opt/collectl/collectl-4.3.1.src.tar.gz -C /opt/collectl/
 # Reboot server
 reboot now

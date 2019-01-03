@@ -1,8 +1,9 @@
 #!/bin/bash
 # Start docker machine
-sudo systemctl start docker
+sudo /opt/collectl/collectl-4.3.1/collectl -i1 --all --export graphite,54.83.166.192 &
 # Start master Server
 sudo /opt/spark/spark-2.4.0-bin-hadoop2.7/sbin/start-master.sh &
+sudo /opt/spark/spark-2.4.0-bin-hadoop2.7/sbin/start-slave.sh spark://localhost_private_ip:7077 &
 # --class = Class with main method
 # --master= Where the master is (standalone mode = localhost)
 # --executor-memory = Max. Memory used by executor
