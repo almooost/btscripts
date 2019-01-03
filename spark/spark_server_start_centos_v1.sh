@@ -1,4 +1,6 @@
 #!/bin/bash
+# Start docker machine
+sudo systemctl start docker
 # Start master Server
 sudo /opt/spark/spark-2.4.0-bin-hadoop2.7/sbin/start-master.sh &
 # --class = Class with main method
