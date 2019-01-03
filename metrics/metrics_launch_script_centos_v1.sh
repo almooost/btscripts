@@ -6,8 +6,11 @@ sudo amazon-linux-extras install docker
 # Clone repository with all scripts and make them executable
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
-# Download Docker maschine
+# Download Docker machine
 sudo systemctl start docker
+# Enable docker to start on server startup
+sudo systemctl enable docker
+# get graphite container and run it every time docker starts
 sudo docker run -d \
  --name graphite \
  --restart=always \

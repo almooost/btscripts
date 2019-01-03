@@ -1,4 +1,5 @@
 #!/bin/bash
+# This script is only necessary if docker does not run and graphite was not downloaded
 # Run docker machine
 sudo systemctl start docker
 # Run docker machine if not already running

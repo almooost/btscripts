@@ -13,6 +13,8 @@ sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 sudo cp /opt/btscripts/spark/metrics.properties /opt/spark/spark-2.4.0-bin-hadoop2.7/conf/
 sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/sc001-1.0-SNAPSHOT-jar-with-dependencies.jar
+# replace ip in start script for later usage
+sudo /opt/btscripts/spark/replace_ip.sh "$(ifconfig eth0 | grep "inet " | awk -F'[: ]+' '{ print $3 }')"
 # Install collectl for collecting data
 sudo mkdir /opt/collectl
 sudo wget -P /opt/collectl https://sourceforge.net/projects/collectl/files/collectl/collectl-4.3.1/collectl-4.3.1.src.tar.gz
