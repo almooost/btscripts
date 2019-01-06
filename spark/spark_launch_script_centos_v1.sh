@@ -12,7 +12,9 @@ sudo tar xvzf /opt/spark/spark*.tgz -C /opt/spark/
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 sudo cp /opt/btscripts/spark/metrics.properties /opt/spark/spark-2.4.0-bin-hadoop2.7/conf/
-sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/sc001-1.0-SNAPSHOT-jar-with-dependencies.jar
+#sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/sc001-1.0-SNAPSHOT-jar-with-dependencies.jar
+# Spark Experiment 1
+sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/spark-exp001-1.0-SNAPSHOT-jar-with-dependencies.jar
 # replace ip in start script for later usage
 sudo /opt/btscripts/spark/replace_ip.sh "$(ifconfig eth0 | grep "inet " | awk -F'[: ]+' '{ print $3 }')"
 # Install collectl for collecting data

@@ -13,5 +13,5 @@ tar xvzf /opt/kafka/kafka*.tgz -C /opt/kafka/
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 # set custom server.properies
-sudo cat /opt/btscripts/kafka/server.properies >> /opt/kafka/kafka_2.11-2.1.0/config/server.properties
+sudo cat /opt/btscripts/kafka/server.properties >> /opt/kafka/kafka_2.11-2.1.0/config/server.properties
 reboot now
