@@ -84,3 +84,20 @@ $ cd /opt/spark
 $ sudo ./spark-2.3.1-bin-hadoop2.7/bin/spark-submit /opt/files/wordcount.py localhost 9999
 
 
+
+
+### Create Spark cluster
+
+# add "slaves" file to spark configuration
+$ cp /opt/spark/spark*/conf/slaves.template /opt/spark/spark*/conf/slaves
+$ vi /opt/spark/spark*/conf/slaves
+# Add all slaves (spark worker) ips to this file
+
+# Generate ssh key and add it to the .ssh/authorized_keys file of the workers
+$ ssh-keygen
+> 3x yes
+# Copy and export to authorized_keys file of slaves
+
+# Start slaves on master
+$ /opt/spark/spark*/sbin/start-slaves.sh
+> should start all slaves, otherwise would print error

@@ -1,4 +1,10 @@
 #==============================================================================
+# Fault tolerance and checkpointing
+#==============================================================================
+state.backend: filesystem
+state.checkpoints.dir: file:///tmp/flink-checkpoints
+state.savepoints.dir: file:///tmp/flink-savepoints
+#==============================================================================
 # Flink Metrics to Graphite
 #==============================================================================
 metrics.reporter.grph.class: org.apache.flink.metrics.graphite.GraphiteReporter

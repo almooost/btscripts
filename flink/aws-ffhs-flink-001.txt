@@ -87,26 +87,26 @@ $ less /opt/flink/flink-*/log/flink-*-taskmanager-*.out
 
 
 
-### Setup Monitoring to ganglia
+### Flink Cluster configuration
 
-1.) Copy and install RPMs from Gagnlia server (see Gagnlia setup file)
+# First the job manager needs to have it's own ip configured in the flink-conf.yaml
+jobmanager.rpc.address: <jobmanager ip>
 
-2.) Configure ganglia gmond.conf file (see Ganglia setup file)
+# Add ipaddresses of all slaves to: 
+$ vi /opt/flink/flink*/conf/slaves
 
-3.) Configure flink
-```commandline
-$ 
-```
+0.0.0.0
+0.0.0.0
+0.0.0.0
+0.0.0.0
 
+# On all slaves (taskmanagers, add the ip of the jobmanager (master))
+$ vi /opt/flink/flink*/conf/flink-conf.yaml
+jobmanager.rpc.address: <jobmanager ip>
 
-```commandline
-$
-```
+# The public key of the jobmanager needs to be in the ".ssh/authorized_keys" file of all slaves, so he
+# can access all slaves and start their processes
 
-```commandline
-$
-```
-
-```commandline
-$
-```
+# first of all we have to create a new private and public key on the master
+$ ssh-keygen
+-> Anschliessend auf allen Taskmanagern in die .ssh/authorized_keys kopieren
