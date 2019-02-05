@@ -7,12 +7,15 @@ mkdir /opt/kafka
 wget -P /opt/kafka/ http://mirror.easyname.ch/apache/kafka/2.1.0/kafka_2.11-2.1.0.tgz 
 tar xvzf /opt/kafka/kafka*.tgz -C /opt/kafka/
 sudo sed -i 's/104857600/2066182517/g' /opt/kafka/kafka_2.11-2.1.0/config/server.properties
+sudo git clone https://github.com/almooost/btscripts /opt/btscripts
+sudo chmod a+x -R /opt/btscripts/
 sudo mkdir /opt/files
 #sudo wget -P /opt/files/ http://jmcauley.ucsd.edu/data/amazon/qa/qa_Video_Games.json.gz
 #sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/qa_Video_Games.json.gz
-sudo wget -P /opt/files/reviews.json http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_Amazon_Instant_Video_5.json.gz
+sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/data/aggressive_dedup.json.gz
+sudo wget -P /opt/files/ http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_Amazon_Instant_Video_5.json.gz
 sudo cd /opt/files/
 sudo gunzip /opt/files/*.gz
-sudo git clone https://github.com/almooost/btscripts /opt/btscripts
-sudo chmod a+x -R /opt/btscripts/
+sudo mv /opt/files/reviews*.json /opt/files/reviews_other.json
+sudo mv /opt/files/aggressive_dedup.json /opt/files/reviews.json
 reboot now

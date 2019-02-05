@@ -2,10 +2,10 @@
 # read file line by line and keep decrasing sleep time
 from time import sleep
 
-f = open('/opt/files/qa_Video_Games.json')
-speed = float(0.01)
+f = open('/opt/files/reviews_other.json')
+speed = float(0.0001)
 for line in f:
-    print line
+#    print line
     sleep(speed)
-    speed = float(speed / 1.00001)
+#    speed = float(speed / 1.00001)
 f.close()
