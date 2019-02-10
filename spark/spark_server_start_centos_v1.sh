@@ -16,5 +16,5 @@ sudo /opt/spark/spark-2.4.0-bin-hadoop2.7/bin/spark-submit \
   --total-executor-cores 4 \
   --conf spark.metrics.conf=/opt/spark/spark-2.4.0-bin-hadoop2.7/conf/metrics.properties \
   --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0 \
-  /opt/spark/sc001-1.0-SNAPSHOT-jar-with-dependencies.jar \
+  /opt/files/spark-exp001-1.0-SNAPSHOT-jar-with-dependencies.jar \
   1000
