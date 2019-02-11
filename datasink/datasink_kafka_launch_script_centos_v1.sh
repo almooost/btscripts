@@ -18,4 +18,4 @@ sudo cd /opt/files/
 sudo gunzip /opt/files/*.gz
 sudo mv /opt/files/reviews*.json /opt/files/reviews_other.json
 sudo mv /opt/files/aggressive_dedup.json /opt/files/reviews.json
-reboot now
+#reboot now
