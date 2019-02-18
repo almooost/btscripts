@@ -3,7 +3,7 @@
 from time import sleep
 
 f = open('/opt/files/reviews_other.json')
-speed = float(0.0001)
+speed = float(0.00001) # 0.00001 = 100'000/s
 for line in f:
     print line
     sleep(speed)
