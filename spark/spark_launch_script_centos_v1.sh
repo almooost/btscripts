@@ -21,7 +21,7 @@ sudo cp /opt/btscripts/spark/metrics.properties /opt/spark/spark-2.4.0-bin-hadoo
 # replace ip in start script for later usage
 sudo /opt/btscripts/spark/replace_ip.sh "$(ifconfig eth0 | grep "inet " | awk -F'[: ]+' '{ print $3 }')"
 #sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/sc001-1.0-SNAPSHOT-jar-with-dependencies.jar
-# Spark Experiment 1
+# Spark Experiments
 sudo mkdir /opt/files
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/spark/spark-exp001-1.0-SNAPSHOT-jar-with-dependencies.jar
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/spark/spark-exp002-1.0-SNAPSHOT-jar-with-dependencies.jar

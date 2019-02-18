@@ -23,4 +23,10 @@ sudo chmod a+x -R /opt/btscripts/
 sudo cp /opt/flink/flink-1.7.0/opt/flink-metrics-graphite-1.7.0.jar /opt/flink/flink-1.7.0/lib/
 sudo cat /opt/btscripts/flink/flink_conf_metrics.yaml >> /opt/flink/flink-1.7.0/conf/flink-conf.yaml
 # Reboot server
-reboot now
+# Spark Experiment 1
+sudo mkdir /opt/files
+sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp001-1.0-SNAPSHOT-jar-with-dependencies.jar
+sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp002-1.0-SNAPSHOT-jar-with-dependencies.jar
+sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp003-1.0-SNAPSHOT-jar-with-dependencies.jar
+sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp004-1.0-SNAPSHOT-jar-with-dependencies.jar
+#reboot now
