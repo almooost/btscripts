@@ -10,10 +10,12 @@ sudo sed -i 's/104857600/2066182517/g' /opt/kafka/kafka_2.11-2.1.0/config/server
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 sudo mkdir /opt/files
-sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/data/aggressive_dedup.json.gz
-sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/data/reviews_Books_5.json.gz
+#sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/data/aggressive_dedup.json.gz
+sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/data/reviews_Electronics.json.gz &
+sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/data/reviews_Books.json.gz &
+sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/data/reviews_Books_5.json.gz &
 sudo cd /opt/files/
-sudo gunzip /opt/files/*.gz
-sudo mv /opt/files/reviews*.json /opt/files/reviews_other.json
-sudo mv /opt/files/aggressive_dedup.json /opt/files/reviews.json
+#sudo gunzip /opt/files/*.gz
+#sudo mv /opt/files/reviews*.json /opt/files/reviews_other.json
+#sudo mv /opt/files/aggressive_dedup.json /opt/files/reviews.json
 #reboot now
