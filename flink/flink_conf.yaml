@@ -1,7 +1,7 @@
 #==============================================================================
 # Fault tolerance and checkpointing
 #==============================================================================
-state.backend: FsStateBackend
+state.backend: filesystem
 state.checkpoints.dir: hdfs://3.208.67.119:50010/flink
 state.savepoints.dir: hdfs://3.208.67.119:50010/flink
 #==============================================================================
