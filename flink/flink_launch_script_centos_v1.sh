@@ -31,4 +31,9 @@ sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp001-
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp002-1.0-SNAPSHOT-jar-with-dependencies.jar
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp003-1.0-SNAPSHOT-jar-with-dependencies.jar
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp004-1.0-SNAPSHOT-jar-with-dependencies.jar
+# add ssh keys
+wget -P /home/ec2-user/.ssh/ https://s3.amazonaws.com/ffhs-bt-bds/keys/flink/id_rsa
+wget -P /home/ec2-user/.ssh/ https://s3.amazonaws.com/ffhs-bt-bds/keys/flink/id_rsa.pub
+chown ec2-user /home/ec2-user/.ssh/id_*
+chmod 600 /home/ec2-user/.ssh/id_*
 #reboot now

@@ -22,5 +22,8 @@ sudo cp /opt/btscripts/flink/core-site.xml /opt/flink/flink-1.7.0/conf/
 sudo cp /opt/flink/flink-1.7.0/opt/flink-metrics-graphite-1.7.0.jar /opt/flink/flink-1.7.0/lib/
 sudo cp /opt/flink/flink-1.7.0/opt/flink-s3-fs-presto-1.7.0.jar /opt/flink/flink-1.7.0/lib/
 sudo cat /opt/btscripts/flink/flink_conf.yaml >> /opt/flink/flink-1.7.0/conf/flink-conf.yaml
+# add key from flink job manager
+wget -P /opt/flink/ https://s3.amazonaws.com/ffhs-bt-bds/keys/flink/id_rsa.pub
+cat /opt/flink/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
 # Reboot server
 reboot now

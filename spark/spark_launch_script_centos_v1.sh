@@ -27,5 +27,10 @@ sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/spark/spark-exp001-
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/spark/spark-exp002-1.0-SNAPSHOT-jar-with-dependencies.jar
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/spark/spark-exp003-1.0-SNAPSHOT-jar-with-dependencies.jar
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/spark/spark-exp004-1.0-SNAPSHOT-jar-with-dependencies.jar
+# add keys
+wget -P /home/ec2-user/.ssh/ https://s3.amazonaws.com/ffhs-bt-bds/keys/spark/id_rsa
+wget -P /home/ec2-user/.ssh/ https://s3.amazonaws.com/ffhs-bt-bds/keys/spark/id_rsa.pub
+chown ec2-user /home/ec2-user/.ssh/id_*
+chmod 600 /home/ec2-user/.ssh/id_*
 # Reboot server
 reboot now

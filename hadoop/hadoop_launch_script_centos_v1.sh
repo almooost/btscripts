@@ -9,7 +9,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.amzn2.x86_64/
 sudo mkdir /opt/collectl
 sudo wget -P /opt/collectl https://sourceforge.net/projects/collectl/files/collectl/collectl-4.3.1/collectl-4.3.1.src.tar.gz
 sudo tar xvzf /opt/collectl/collectl-4.3.1.src.tar.gz -C /opt/collectl/
-# Create flink directory, download and extract sources
+# Create hadoop directory, download and extract sources
 mkdir /opt/hadoop
 wget -P /opt/hadoop/ https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz
 tar xvzf /opt/hadoop/hadoop-2.9.2.tar.gz -C /opt/hadoop/
@@ -27,5 +27,17 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.0.3.jar grep i
 /opt/hadoop/hadoop-2.9.2/bin/hdfs dfs -mkdir /flink
 /opt/hadoop/hadoop-2.9.2/bin/hdfs dfs -mkdir /spark
 /opt/hadoop/hadoop-2.9.2/sbin/stop-dfs.sh
+# add ssh keys
+wget -P /home/ec2-user/.ssh/ https://s3.amazonaws.com/ffhs-bt-bds/keys/hadoop/id_rsa
+wget -P /home/ec2-user/.ssh/ https://s3.amazonaws.com/ffhs-bt-bds/keys/hadoop/id_rsa.pub
+chown ec2-user /home/ec2-user/.ssh/id_*
+chmod 600 /home/ec2-user/.ssh/id_*
+# also for spark and flink
+sudo mkdir -p /opt/files/flink
+sudo mkdir -p /opt/files/spark
+wget -P /opt/files/flink/ https://s3.amazonaws.com/ffhs-bt-bds/keys/flink/id_rsa.pub
+wget -P /opt/files/spark/ https://s3.amazonaws.com/ffhs-bt-bds/keys/spark/id_rsa.pub
+cat /opt/files/flink/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
+cat /opt/files/spark/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
 # Reboot server
 reboot now
