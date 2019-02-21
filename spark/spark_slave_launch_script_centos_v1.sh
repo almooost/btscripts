@@ -19,5 +19,8 @@ sudo cp /opt/btscripts/spark/metrics.properties /opt/spark/spark-2.4.0-bin-hadoo
 # add key from spark master
 sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/id_rsa.pub
 cat /opt/spark/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
+# add collectl to autostart
+sudo chmod +x /etc/rc.d/rc.local
+sudo cat /opt/btscripts/datasink/rc.local >> /etc/rc.local
 # Reboot server
 reboot now

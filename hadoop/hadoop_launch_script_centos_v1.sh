@@ -22,5 +22,8 @@ sudo cat /opt/btscripts/hadoop/core-site.xml > /opt/hadoop/hadoop-2.9.2/etc/hado
 sudo mkdir /opt/hadoop/hadoop-2.9.2/logs
 sudo chown ec2-user /opt/hadoop/hadoop-2.9.2/logs
 sudo chmod 777 /opt/hadoop/hadoop-2.9.2/logs
+# add collectl to autostart
+sudo chmod +x /etc/rc.d/rc.local
+sudo cat /opt/btscripts/datasink/rc.local >> /etc/rc.local
 # Reboot server
 reboot now

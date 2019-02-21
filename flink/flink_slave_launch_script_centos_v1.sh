@@ -25,5 +25,8 @@ sudo cat /opt/btscripts/flink/flink_conf.yaml >> /opt/flink/flink-1.7.0/conf/fli
 # add key from flink job manager
 sudo wget -P /opt/flink/ https://s3.amazonaws.com/ffhs-bt-bd/flink/id_rsa.pub
 cat /opt/flink/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
+# add collectl to autostart
+sudo chmod +x /etc/rc.d/rc.local
+sudo cat /opt/btscripts/datasink/rc.local >> /etc/rc.local
 # Reboot server
 reboot now

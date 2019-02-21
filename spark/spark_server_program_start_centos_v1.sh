@@ -14,6 +14,7 @@
   --total-executor-cores 16 \
   --num-executors 4 \
   --conf spark.default.parallelism=4 \
+  --conf spark.streaming.backpressure.enabled=false \
   --conf spark.metrics.conf=/opt/spark/spark-2.4.0-bin-hadoop2.7/conf/metrics.properties \
   --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0 \
   /opt/files/spark-exp001-1.0-SNAPSHOT-jar-with-dependencies.jar \

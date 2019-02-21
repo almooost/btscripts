@@ -31,4 +31,7 @@ sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp001-
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp002-1.0-SNAPSHOT-jar-with-dependencies.jar
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp003-1.0-SNAPSHOT-jar-with-dependencies.jar
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp004-1.0-SNAPSHOT-jar-with-dependencies.jar
+# add collectl to autostart
+sudo chmod +x /etc/rc.d/rc.local
+sudo cat /opt/btscripts/datasink/rc.local >> /etc/rc.local
 #reboot now
