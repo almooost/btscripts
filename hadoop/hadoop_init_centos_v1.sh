@@ -12,6 +12,7 @@ sudo wget -P /opt/files/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/id_rsa.
 cat /opt/files/flink/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
 cat /opt/files/spark/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
 # finish hadoop setup
+cat /home/ec2-user/.ssh/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
 # Create default directory for flink and spark
 /opt/hadoop/hadoop-2.9.2/bin/hdfs namenode -format
 /opt/hadoop/hadoop-2.9.2/sbin/start-dfs.sh
