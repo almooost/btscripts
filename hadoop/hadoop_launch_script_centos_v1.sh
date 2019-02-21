@@ -21,6 +21,11 @@ sudo chmod a+x -R /opt/btscripts/
 mkdir /opt/hadoop/hadoop-2.9.2/input
 cp /opt/hadoop/hadoop-2.9.2/etc/hadoop/*.xml input
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.0.3.jar grep input output 'dfs[a-z.]+'
-cat output/*
+# Create default directory for flink and spark
+/opt/hadoop/hadoop-2.9.2/bin/hdfs namenode -format
+/opt/hadoop/hadoop-2.9.2/sbin/start-dfs.sh
+/opt/hadoop/hadoop-2.9.2/bin/hdfs dfs -mkdir /flink
+/opt/hadoop/hadoop-2.9.2/bin/hdfs dfs -mkdir /spark
+/opt/hadoop/hadoop-2.9.2/sbin/stop-dfs.sh
 # Reboot server
 reboot now
