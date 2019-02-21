@@ -10,17 +10,17 @@ sudo mkdir /opt/collectl
 sudo wget -P /opt/collectl https://sourceforge.net/projects/collectl/files/collectl/collectl-4.3.1/collectl-4.3.1.src.tar.gz
 sudo tar xvzf /opt/collectl/collectl-4.3.1.src.tar.gz -C /opt/collectl/
 # Create flink directory, download and extract sources
-mkdir /opt/flink
-wget -P /opt/flink/ https://archive.apache.org/dist/flink/flink-1.7.0/flink-1.7.0-bin-hadoop28-scala_2.11.tgz
-tar xvzf /opt/flink/flink*.tgz -C /opt/flink/
+mkdir /opt/hadoop
+wget -P /opt/hadoop/ https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz
+tar xvzf /opt/hadoop/hadoop-2.9.2.tar.gz -C /opt/hadoop/
 # Replace job manager ip
-sudo sed -i s/localhost/3.95.130.106/g /opt/flink/flink-1.7.0/conf/flink-conf.yaml
 # Clone scripts repository and copy necessary files
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
-sudo cp /opt/btscripts/flink/core-site.xml /opt/flink/flink-1.7.0/conf/
-sudo cp /opt/flink/flink-1.7.0/opt/flink-metrics-graphite-1.7.0.jar /opt/flink/flink-1.7.0/lib/
-sudo cp /opt/flink/flink-1.7.0/opt/flink-s3-fs-presto-1.7.0.jar /opt/flink/flink-1.7.0/lib/
-sudo cat /opt/btscripts/flink/flink_conf.yaml >> /opt/flink/flink-1.7.0/conf/flink-conf.yaml
+# Prepare standalone mode
+mkdir /opt/hadoop/hadoop-2.9.2/input
+cp /opt/hadoop/hadoop-2.9.2/etc/hadoop/*.xml input
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.0.3.jar grep input output 'dfs[a-z.]+'
+cat output/*
 # Reboot server
 reboot now

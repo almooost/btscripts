@@ -21,9 +21,11 @@ sudo sed -i s/localhost/3.95.130.106/g /opt/flink/flink-1.7.0/conf/flink-conf.ya
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 sudo cp /opt/flink/flink-1.7.0/opt/flink-metrics-graphite-1.7.0.jar /opt/flink/flink-1.7.0/lib/
-sudo cat /opt/btscripts/flink/flink_conf_metrics.yaml >> /opt/flink/flink-1.7.0/conf/flink-conf.yaml
+sudo cp /opt/flink/flink-1.7.0/opt/flink-s3-fs-presto-1.7.0.jar /opt/flink/flink-1.7.0/lib/
+sudo cp /opt/btscripts/flink/core-site.xml /opt/flink/flink-1.7.0/conf/y
+sudo cat /opt/btscripts/flink/flink_conf.yaml >> /opt/flink/flink-1.7.0/conf/flink-conf.yaml
 # Reboot server
-# Spark Experiment 1
+# Flink Experiment 1
 sudo mkdir /opt/files
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp001-1.0-SNAPSHOT-jar-with-dependencies.jar
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp002-1.0-SNAPSHOT-jar-with-dependencies.jar
