@@ -17,7 +17,7 @@ sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 sudo cp /opt/btscripts/spark/metrics.properties /opt/spark/spark-2.4.0-bin-hadoop2.7/conf/
 # add key from spark master
-wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bds/keys/spark/id_rsa.pub
+sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/id_rsa.pub
 cat /opt/spark/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
 # Reboot server
 reboot now
