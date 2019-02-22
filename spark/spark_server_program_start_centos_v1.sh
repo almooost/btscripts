@@ -15,6 +15,7 @@
   --num-executors 4 \
   --conf spark.default.parallelism=4 \
   --conf spark.streaming.backpressure.enabled=false \
+  --conf spark.sql.streaming.checkpointLocation=hdfs://3.208.67.119:50010/spark \
   --conf spark.metrics.conf=/opt/spark/spark-2.4.0-bin-hadoop2.7/conf/metrics.properties \
   --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0 \
   /opt/files/spark-exp001-1.0-SNAPSHOT-jar-with-dependencies.jar \
