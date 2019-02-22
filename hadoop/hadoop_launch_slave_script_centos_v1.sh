@@ -19,6 +19,10 @@ sudo chmod a+x -R /opt/btscripts/
 # Change hadoop config
 sudo sed -i s#\$\{JAVA_HOME\}#\/usr\/lib\/jvm\/java-1.8.0-openjdk-1.8.0.191.b12-0.amzn2.x86_64\/jre#g /opt/hadoop/hadoop-2.9.2/etc/hadoop/hadoop-env.sh
 sudo cat /opt/btscripts/hadoop/core-site.xml > /opt/hadoop/hadoop-2.9.2/etc/hadoop/core-site.xml
+sudo cat /opt/btscripts/hadoop/hdfs-site.xml > /opt/hadoop/hadoop-2.9.2/etc/hadoop/hdfs-site.xml
+sudo mkdir -p /tmp/hdfs/data
+sudo mkdir -p /tmp/hdfs/checkpoints
+sudo chown -R ec2-user /tmp/hdfs
 sudo mkdir /opt/hadoop/hadoop-2.9.2/logs
 sudo chown ec2-user /opt/hadoop/hadoop-2.9.2/logs
 sudo chmod 777 /opt/hadoop/hadoop-2.9.2/logs

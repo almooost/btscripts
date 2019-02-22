@@ -2,8 +2,8 @@
 # Fault tolerance and checkpointing
 #==============================================================================
 state.backend: filesystem
-state.checkpoints.dir: hdfs://3.208.67.119:50010/flink
-state.savepoints.dir: hdfs://3.208.67.119:50010/flink
+state.checkpoints.dir: hdfs://3.208.67.119:8020/flink
+state.savepoints.dir: hdfs://3.208.67.119:8020/flink
 #==============================================================================
 # Flink Metrics to Graphite
 #==============================================================================

@@ -14,7 +14,7 @@ sudo tar xvzf /opt/collectl/collectl-4.3.1.src.tar.gz -C /opt/collectl/
 sudo mkdir /opt/spark
 sudo wget -P /opt/spark/ http://www.pirbot.com/mirrors/apache/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz
 sudo tar xvzf /opt/spark/spark*.tgz -C /opt/spark/
-sudo mv /opt/spark/spark-2.4.0-bin-hadoop2.7/conf/slaves.template /uopt/spark/spark-2.4.0-bin-hadoop2.7/conf/slaves
+sudo mv /opt/spark/spark-2.4.0-bin-hadoop2.7/conf/slaves.template /opt/spark/spark-2.4.0-bin-hadoop2.7/conf/slaves
 # Clone scripts repository and download jar file
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
