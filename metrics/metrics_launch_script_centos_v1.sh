@@ -19,7 +19,7 @@ sudo docker run -d \
  -p 2023-2024:2023-2024 \
  -p 8125:8125/udp \
  -p 8126:8126 \
- graphiteapp/graphite-statsd
+ graphiteapp/graphite-statsd:1.1.5-9
 # Copy Configuration to local for easy editing
 sudo mkdir /home/ec2-user/graphite
 sudo docker cp graphite:/opt/graphite/conf /home/ec2-user/graphite
