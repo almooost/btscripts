@@ -7,5 +7,5 @@ speed = float(0.00001) # 0.00001 = 100'000/s
 for line in f:
     print line
     sleep(speed)
-#    speed = float(speed / 1.00001)
+#    speed = float(speed / 1.00001) # Uncomment for Exp003
 f.close()

@@ -1,4 +1,8 @@
-Apache Flink Installation on AWS Lightsail (18.09.2018)
+####
+Test installation of apache flink on AWS EC2
+
+This is only an test description and does no represent the productive configuration
+####
 
 AWS Lightsail Properties:
 OS: Ubuntu 16.04

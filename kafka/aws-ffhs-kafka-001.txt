@@ -1,4 +1,8 @@
-# Apache Kafka on AWS
+####
+Test installation of apache kafka on AWS EC2
+
+This is only an test description and does no represent the productive configuration
+####
 
 ## System properties
 CPU: 1vCPU

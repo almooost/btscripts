@@ -5,7 +5,7 @@ yum -y update
 yum install -y java-1.8.0-openjdk-headless.x86_64 git
 # Create java home variable
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.amzn2.x86_64/
-# Download collectl
+# Download collectl for memory metrics
 sudo mkdir /opt/collectl
 sudo wget -P /opt/collectl https://sourceforge.net/projects/collectl/files/collectl/collectl-4.3.1/collectl-4.3.1.src.tar.gz
 sudo tar xvzf /opt/collectl/collectl-4.3.1.src.tar.gz -C /opt/collectl/

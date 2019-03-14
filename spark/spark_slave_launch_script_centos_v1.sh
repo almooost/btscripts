@@ -16,10 +16,10 @@ sudo tar xvzf /opt/spark/spark*.tgz -C /opt/spark/
 sudo git clone https://github.com/almooost/btscripts /opt/btscripts
 sudo chmod a+x -R /opt/btscripts/
 sudo cp /opt/btscripts/spark/metrics.properties /opt/spark/spark-2.4.0-bin-hadoop2.7/conf/
-# add key from spark master
+# Add key from spark master
 sudo wget -P /opt/spark/ https://s3.amazonaws.com/ffhs-bt-bd/spark/id_rsa.pub
 cat /opt/spark/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
-# add collectl to autostart
+# Add collectl to autostart
 sudo chmod +x /etc/rc.d/rc.local
 sudo cat /opt/btscripts/datasink/rc.local >> /etc/rc.local
 # Reboot server

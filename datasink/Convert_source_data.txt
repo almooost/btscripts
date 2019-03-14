@@ -1,4 +1,0 @@
-Daten Aufbereitung, Single Quotes in double quotes umwandeln
-$ cd /opt/files
-# Ersetzt alle "single quotes" mit "double quotes"
-$ sudo sed -i "s/'/\"/g" qa_Video_Games.json

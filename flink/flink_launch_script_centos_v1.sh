@@ -7,7 +7,7 @@ yum install -y java-1.8.0-openjdk-headless.x86_64 git
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.amzn2.x86_64/
 # Create new ssh key to export to slaves
 cat /dev/zero | ssh-keygen -q -N "" > /dev/null
-# Download collectl
+# Download collectl for memory metrics
 sudo mkdir /opt/collectl
 sudo wget -P /opt/collectl https://sourceforge.net/projects/collectl/files/collectl/collectl-4.3.1/collectl-4.3.1.src.tar.gz
 sudo tar xvzf /opt/collectl/collectl-4.3.1.src.tar.gz -C /opt/collectl/
@@ -24,7 +24,6 @@ sudo cp /opt/flink/flink-1.7.0/opt/flink-metrics-graphite-1.7.0.jar /opt/flink/f
 sudo cp /opt/flink/flink-1.7.0/opt/flink-s3-fs-presto-1.7.0.jar /opt/flink/flink-1.7.0/lib/
 sudo cp /opt/btscripts/flink/core-site.xml /opt/flink/flink-1.7.0/conf/y
 sudo cat /opt/btscripts/flink/flink_conf.yaml >> /opt/flink/flink-1.7.0/conf/flink-conf.yaml
-# Reboot server
 # Flink Experiment 1
 sudo mkdir /opt/files
 sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp001-1.0-SNAPSHOT-jar-with-dependencies.jar
@@ -34,4 +33,5 @@ sudo wget -P /opt/files/ https://s3.amazonaws.com/ffhs-bt-bd/flink/flink-exp004-
 # add collectl to autostart
 sudo chmod +x /etc/rc.d/rc.local
 sudo cat /opt/btscripts/datasink/rc.local >> /etc/rc.local
-#reboot now
+# Reboot server
+reboot now
